@@ -237,6 +237,14 @@ test "assign a new id to the event" do
   assert "2" == event2.id
 end
 
+test "#new?" do
+  event1 = Event.new
+  assert event1.new?
+
+  event2 = Event.new(:id => 'event-2')
+  assert event2.new?
+end
+
 # Saving a model
 test "create the model if it is new" do
   event = Event.new(:name => "Foo").save
